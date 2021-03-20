@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BootStrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <!-- Heading -->
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class=" justify-content-center">
+                <h1 class="display-2 bg-dark text-white">Weather Dashboard</h1>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="form-label">Search Results:</h3>
+                <form id="user-form" class="example">
+                    <input id="buttonInput" type="text" class="form-input" aria-label="Search City Name"
+                        aria-describedby="button-addon2" placeholder="Search City Name..." name="search">
+                    <button id="button" class="btn btn-outline-secondary" type="submit"><i
+                            class="fa fa-search"></i></button>
+                </form>
+                <div class="col-12 col-md-8">
+                    <div class="searchedCities" id="searchedCities"></div>
+                    <div id="city-container" class="list-group"></div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="pt-4 pr-col-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="p-3 card-title">State Search Results</h3>
+                                <img id="todaysImg" src="" class="p-3 card-img-top" alt="...">
+                                <h6 id="todaysTemp" class="p-3 card-subtitle mb-2 text-muted">Temperature:</h6>
+                                <h6 id="todaysRh" class="p-3 card-subtitle mb-2 text-muted">Humidity: </h6>
+                                <h6 id="todaysWs" class="p-3 card-subtitle mb-2 text-muted">Wind Speed:</h6>
+                                <h6 id="todaysUv" class="p-3 ard-subtitle mb-2 text-muted">UV Index:</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="card-title">Search Results:</h3>
+            <div class="row row-cols-1 row-cols-md-5 ">
+                <div class="col">
+                    <div class="h-100">
+                        <div class="card-body bg-primary text-white">
+                            <h5 id="dayOne" class="card-title">Card title</h5>
+                            <img id="imgDayOne" src="" class="card-img-top" alt="...">
+                            <h6 id="tempDayOne" class="p-2 card-subtitle mb-2 text-white">Temp:</h6>
+                            <h6 id="rhDayOne" class="p-2 card-subtitle mb-2 text-white">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="h-100 ">
+                        <div class="card-body bg-primary text-white">
+                            <h5 id="dayTwo" class="card-title">Card title</h5>
+                            <img id="imgDayTwo" src="" class="card-img-top" alt="...">
+                            <h6 id="tempDayTwo" class="p-2 card-subtitle mb-2 text-white">Temp:</h6>
+                            <h6 id="rhDayTwo" class="p-2 card-subtitle mb-2 text-white">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" h-100 ">
+                        <div class="card-body bg-primary text-white">
+                            <h5 id="dayThree" class="card-title">Card title</h5>
+                            <img id="imgDayThree" src="" class="card-img-top" alt="...">
+                            <h6 id="tempDayThree" class="p-2 card-subtitle mb-2 text-white">Temp:</h6>
+                            <h6 id="rhDayThree" class="p-2 card-subtitle mb-2 text-white">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" h-100 ">
+                        <div class="card-body bg-primary text-white">
+                            <h5 id="dayFour" class="card-title">Card title</h5>
+                            <img id="imgDayFour" src="" class="card-img-top" alt="...">
+                            <h6 id="tempDayFour" class="p-2 card-subtitle mb-2 text-white">Temp:</h6>
+                            <h6 id="rhDayFour" class="p-2 card-subtitle mb-2 text-white">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class=" h-100 ">
+                        <div class="card-body bg-primary text-white">
+                            <h5 id="dayFive" class="card-title">Card title</h5>
+                            <img id="imgDayFive" src="" class="card-img-top" alt="...">
+                            <h6 id="tempDayFive" class="p-2 card-subtitle mb-2 text-white">Temp:</h6>
+                            <h6 id="rhDayFive" class="p-2 card-subtitle mb-2 text-white">Humidity: </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- BootStrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+    <script src="script.js" type="javascript"></script>
+</body>
+
+</html>
