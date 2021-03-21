@@ -1,13 +1,13 @@
+//Declaration of variables based on the html tab
+
 var formEl = document.querySelector('#user-form');
 var cityInputEl = document.querySelectorAll('#button');
 var liContainerEl = document.querySelector('#city-container');
 var searchedCityEl = document.querySelector('#searchedCities');
-//listning event for imput and fetch response for city provided
 
-
+//functions for listening event
 var formSubmitHandler = function (event) {
     event.preventDefault();
-
     var cityName = cityInputEl.value.trim();
 
     if (cityName) {
@@ -20,13 +20,13 @@ var formSubmitHandler = function (event) {
     }
 };
  console.log('1');
+
+//function for fetch event
 var getCityInfo = function (city) { 
-   
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=laredo&appid=8522788feb48b4797ad60e7823e7392b";
     console.log('3');
     // 'https://api.github.com/users/' + user + '/repos';
     // "https://api.openweathermap.org/data/2.5/weather?q=houston&appid=8522788feb48b4797ad60e7823e7392b";
-    
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -43,13 +43,12 @@ var getCityInfo = function (city) {
         })
 };
 console.log('4');
-
+//function for creation of li 
 var displayCityInfo = function (info, searchTerm) {
     if (info.length === 0) {
         liContainerEl.textContent = 'No information found.';
         return;
     }
-
     console.log('5');
     searchedCityEl.textContent = searchTerm;
 
@@ -61,14 +60,11 @@ var displayCityInfo = function (info, searchTerm) {
 
         var cityEl2 = document.createElement('span');
         cityEl2.textContent = cityNameEl;
-
         cityEl.appendChild(cityEl2);
-
         console.log('6');
 
         var statusEl = document.createElement('span');
         statusEl.classList = 'flex-row align-center';
-
         if (info[i].open_issues_count > 0) {
             statusEl.innerHTML =
                 "<i class='fas fa-times status-icon icon-danger'></i>" + info[i].open_issues_count + ' issue(s)';
@@ -81,26 +77,10 @@ var displayCityInfo = function (info, searchTerm) {
         liContainerEl.appendChild(cityEl);
     }
 console.log('7');
-    // display current information on site in given areas
+    
 };console.log('8');
-//creat li and enter on list
 
-
-
-//display weather for city after search inlucing icon
-
-//UV provide correct indext color
-
-
-
-
-//present 5 day forcast 
-
-
-
-// searccity by list or by entry
-
-
+//calling function
 formEl.addEventListener('sumbit', formSubmitHandler);
 
 
