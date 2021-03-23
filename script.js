@@ -2,9 +2,9 @@
 
 var formEl = document.querySelector('#user-form');
 var cityInputEl = document.querySelectorAll('#button');
-var liContainerEl = document.querySelector('#city-container');
+var buttonInput = document.querySelector('#buttonInput');
 var searchedCityEl = document.querySelector('#searchedCities');
-
+console.log('1');
 //functions for listening event
 var formSubmitHandler = function (event) {
     event.preventDefault();
@@ -13,14 +13,14 @@ var formSubmitHandler = function (event) {
     if (cityName) {
         getCityInfo(cityName);
 
-        liContainerEl.textContent = '';
+        buttonInput.textContent = '';
         cityInputEl = '';
     } else {
         alert("Please provide the name of the city who's weather you wish to inquire about");
     }
 };
- console.log('1');
-
+ 
+console.group('2');
 //function for fetch event
 var getCityInfo = function (city) { 
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=laredo&appid=8522788feb48b4797ad60e7823e7392b";
@@ -46,7 +46,7 @@ console.log('4');
 //function for creation of li 
 var displayCityInfo = function (info, searchTerm) {
     if (info.length === 0) {
-        liContainerEl.textContent = 'No information found.';
+        buttonInput.textContent = 'No information found.';
         return;
     }
     console.log('5');
@@ -74,13 +74,13 @@ var displayCityInfo = function (info, searchTerm) {
 
         cityEl.appendChild(statusEl);
 
-        liContainerEl.appendChild(cityEl);
+        buttonInput.appendChild(cityEl);
     }
 console.log('7');
     
 };console.log('8');
 
 //calling function
-formEl.addEventListener('sumbit', formSubmitHandler);
+formEl.addEventListener('submit', formSubmitHandler);
 
 
